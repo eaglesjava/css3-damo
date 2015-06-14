@@ -1,0 +1,10 @@
+Div{width:800px; height:500px; margin:0 auto}，上面这段样式，可以让 div 在页面的：
+
+A左侧对齐
+B居中对齐
+C右侧对齐
+D下方对齐
+
+
+
+B
