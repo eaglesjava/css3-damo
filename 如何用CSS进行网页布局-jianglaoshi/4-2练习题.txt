@@ -1,0 +1,11 @@
+下面哪两个css设置，可以让元素脱离文档流：
+
+
+A浮动（float）和 绝对定位（position：absolute）
+B相对定位（position：relative）和 绝对定位（position：absolute）
+C固定定位（position：fixed）和相对定位（position：relative）
+D浮动（float）和相对定位（position：relative）
+
+
+
+A
