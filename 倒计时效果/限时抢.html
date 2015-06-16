@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>团购——限时抢</title>
+		<style>
+			div,
+			img {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			.content1 {
+				background: url(image/new.jpg) no-repeat;
+				width: 1004px;
+				height: 613px;
+				margin: 0 auto;
+				position: relative;
+			}
+			#show {
+				position: absolute;
+				top: 108px;
+				left: 27px;
+				color: #F00;
+			}
+			.content2 {
+				background: url(image/kaoyan.jpg) no-repeat;
+				width: 1004px;
+				height: 613px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.txtshow {
+				position: absolute;
+				top: 126px;
+				left: 477px;
+				color: #000;
+			}
+			#timeShow {
+				color: #f00;
+				font-weight: bold;
+				font-size: 24px;
+			}
+			.content3 {
+				background: url(image/product.jpg) no-repeat;
+				width: 1200px;
+				height: 398px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.time {
+				position: absolute;
+				top: 122px;
+				left: 46%;
+				line-height: 22px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content3">
+			<div class="time">还剩 <span id="LeftTime"></span>
+			</div>
+		</div>
+		<script>
+			function FreshTime() {
+				var endtime = new Date("2015/6/17,12:20:12"); //结束时间
+				var nowtime = new Date(); //当前时间
+				var lefttime = parseInt((endtime.getTime() - nowtime.getTime()) / 1000);
+				d = parseInt(lefttime / 3600 / 24);
+				h = parseInt((lefttime / 3600) % 24);
+				m = parseInt((lefttime / 60) % 60);
+				s = parseInt(lefttime % 60);
+				document.getElementById("LeftTime").innerHTML = d + "天" + h + "小时" + m + "分" + s + "秒";
+				if (lefttime <= 0) {
+					document.getElementById("LeftTime").innerHTML = "团购已结束";
+					clearInterval(sh);
+				}
+			}
+			FreshTime()
+			var sh;
+			sh = setInterval(FreshTime, 1000);
+		</script>
+	</body>
+
+</html>
