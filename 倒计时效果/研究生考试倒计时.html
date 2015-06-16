@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>研究生考试时间</title>
+		<style>
+			div,
+			img {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			.content1 {
+				background: url(image/new.jpg) no-repeat;
+				width: 1004px;
+				height: 613px;
+				margin: 0 auto;
+				position: relative;
+			}
+			#show {
+				position: absolute;
+				top: 108px;
+				left: 27px;
+				color: #F00;
+			}
+			.content2 {
+				background: url(image/kaoyan.jpg) no-repeat;
+				width: 1004px;
+				height: 613px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.txtshow {
+				position: absolute;
+				top: 126px;
+				left: 477px;
+				color: #000;
+			}
+			#timeShow {
+				color: #f00;
+				font-weight: bold;
+				font-size: 24px;
+			}
+			.content3 {
+				background: url(image/product.jpg) no-repeat;
+				width: 1200px;
+				height: 398px;
+				margin: 0 auto;
+				position: relative;
+			}
+			.time {
+				position: absolute;
+				top: 122px;
+				left: 46%;
+				line-height: 22px;
+				font-size: 14px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="content2">
+			<div class="txtshow">距离2015年研究生考试时间还有
+				<span id="timeShow"></span>天
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {　　
+			var timedate = new Date("2,14,2016");　　
+			var now = new Date();　　
+			var date = timedate.getTime() - now.getTime(); //得出的为毫秒
+			　　
+			var time = Math.ceil(date / (1000 * 60 * 60 * 24));
+			//1000 * 60 * 60 * 24一天的秒数
+			if (time > 0) {
+				document.getElementById('timeShow').innerHTML = time;
+			}
+		}
+	</script>
+
+</html>
