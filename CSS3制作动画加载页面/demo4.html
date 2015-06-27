@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="animate.css" rel="stylesheet" />
+		<style>
+			
+			html, body {
+				height:100%;
+			}
+			body {
+				width: 100%;
+				background: #ffcb00;
+				overflow: hidden;
+			}
+			#header{
+				position: absolute;
+				z-index: 2000;
+				width: 235px;
+				top: 50px;
+			}
+			#header h1{
+				font-size: 30px;
+				font-weight: 400;
+				text-transform: uppercase;
+				color: rgba(255,255,255,0.9);
+				text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+				padding: 20px;
+				background: #000;
+			}
+			#navigation {
+				margin-top: 20px;
+				width: 235px;
+				display:block;
+				list-style:none;
+				z-index:3;
+			}
+			#navigation a{
+				color: #444;
+				display: block;
+				background: #fff;
+				background: rgba(255,255,255,0.9);
+				line-height: 50px;
+				padding: 0px 20px;
+				text-transform: uppercase;
+				margin-bottom: 6px;
+				box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+				font-size: 14px;
+			}
+			#navigation a:hover {
+				background: #ddd;
+			}
+			.content{
+				right: 40px;
+				left: 280px;
+				top: 0px;
+				position: absolute;
+				padding-bottom: 30px;
+			}
+			.content h2{
+				font-size: 110px;
+				padding: 10px 0px 20px 0px;
+				margin-top: 52px;
+				color: #fff;
+				color: rgba(255,255,255,0.9);
+				text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+			}
+			.content p{
+				font-size: 18px;
+				padding: 10px;
+				line-height: 24px;
+				color: #fff;
+				display: inline-block;
+				background: black;
+				padding: 10px;
+				margin: 3px 0px;
+			}
+			
+			/*在"div.panel"中不在加有“tranisiton”属性：*/
+			.panel {
+				min-width: 100%;
+				height: 98%;
+				overflow-y: auto;
+				overflow-x: hidden;
+				margin-top: -150%;
+				position: absolute;
+				background: #87cfe6;
+				box-shadow: 0px 4px 7px rgba(0,0,0,0.6);
+				z-index: 2;	
+			}
+			
+			/*在“div.panel”点击下，使用“:target”触发前面创建的“flip”动画效果：*/
+			/*.panel:target{
+				margin-top: 0%;
+				background-color: #87cfe6;
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				-o-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-backface-visibility: visible !important;
+				-webkit-animation-name: flip;
+				-moz-backface-visibility: visible !important;
+				-moz-animation-name: flip;
+				-ms-backface-visibility: visible !important;
+				-ms-animation-name: flip;
+				-o-backface-visibility: visible !important;
+				-o-animation-name: flip;
+				backface-visibility: visible !important;
+				animation-name: flip;
+				-moz-animation-delay: 0.2s;
+				-webkit-animation-delay: 0.2s;
+				-ms-animation-delay: 0.2s;
+				-o-animation-delay: 0.2s;
+				animation-delay: 0.2s;
+				-moz-animation-duration: 1s;
+				-webkit-animation-duration: 1s;
+				-ms-animation-duration: 1s;
+				-o-animation-duration: 1s;
+				animation-duration: 1s;
+				-moz-animation-fill-mode: both;
+				-webkit-animation-fill-mode: both;
+				-ms-animation-fill-mode: both;
+				-o-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-moz-animation-timing-function: ease;
+				-webkit-animation-timing-function: ease;
+				-o-animation-timing-function: ease;
+				-ms-animation-timing-function: ease;
+				animation-timing-function: ease;
+			}*/
+			
+			#home:target ~ #header #navigation #link-home,
+			#portfolio:target ~ #header #navigation #link-portfolio,
+			#about:target ~ #header #navigation #link-about,
+			#contact:target ~ #header #navigation #link-contact{
+					background: #000;
+					color: #fff;
+			}
+			
+			/*触发动画*/
+			
+			.panel:target{
+				margin-top: 0%;
+				background-color: #B1E583;
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				-o-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-backface-visibility: visible !important;
+				-moz-backface-visibility: visible !important;
+				-ms-backface-visibility: visible !important;
+				-o-backface-visibility: visible !important;
+				backface-visibility: visible !important;
+				animation-name: flip;
+				-moz-animation-delay: 0.2s;
+				-webkit-animation-delay: 0.2s;
+				-ms-animation-delay: 0.2s;
+				-o-animation-delay: 0.2s;
+				animation-delay: 0.2s;
+				-moz-animation-duration: 1s;
+				-webkit-animation-duration: 1s;
+				-ms-animation-duration: 1s;
+				-o-animation-duration: 1s;
+				animation-duration: 1s;
+				-moz-animation-fill-mode: both;
+				-webkit-animation-fill-mode: both;
+				-ms-animation-fill-mode: both;
+				-o-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-moz-animation-timing-function: ease;
+				-webkit-animation-timing-function: ease;
+				-o-animation-timing-function: ease;
+				-ms-animation-timing-function: ease;
+				animation-timing-function: ease;
+				-webkit-animation-name: bounceInUp;
+				-moz-animation-name: bounceInUp;
+				-ms-animation-name: bounceInUp;
+				-o-animation-name: bounceInUp;
+				animation-name: bounceInUp;
+			}
+			
+			/*首先调用了Daniel Eden的Animate.css效果中的“flip”：*/
+			/*@-webkit-keyframes flip {
+			0% {
+				-webkit-transform: perspective(400px) rotateY(0);
+				-webkit-animation-timing-function: ease-out;
+			}
+			40% {
+				-webkit-transform: perspective(400px) translateZ(150px) rotateY(170deg);
+				-webkit-animation-timing-function: ease-out;
+			}
+			50% {
+				-webkit-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+				-webkit-animation-timing-function: ease-in;
+			}
+			80% {
+				-webkit-transform: perspective(400px) rotateY(360deg) scale(.95);
+				-webkit-animation-timing-function: ease-in;
+			}
+			100% {
+				-webkit-transform: perspective(400px) scale(1);
+				-webkit-animation-timing-function: ease-in;
+			}
+		}
+		@-moz-keyframes flip {
+			0% {
+				-moz-transform: perspective(400px) rotateY(0);
+				-moz-animation-timing-function: ease-out;
+			}
+			40% {
+				-moz-transform: perspective(400px) translateZ(150px) rotateY(170deg);
+				-moz-animation-timing-function: ease-out;
+			}
+			50% {
+				-moz-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+				-moz-animation-timing-function: ease-in;
+			}
+			80% {
+				-moz-transform: perspective(400px) rotateY(360deg) scale(.95);
+				-moz-animation-timing-function: ease-in;
+			}
+			100% {
+				-moz-transform: perspective(400px) scale(1);
+				-moz-animation-timing-function: ease-in;
+			}
+		}
+		@-ms-keyframes flip {
+			0% {
+				-ms-transform: perspective(400px) rotateY(0);
+				-ms-animation-timing-function: ease-out;
+			}
+			40% {
+				-ms-transform: perspective(400px) translateZ(150px) rotateY(170deg);
+				-ms-animation-timing-function: ease-out;
+			}
+			50% {
+				-ms-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+				-ms-animation-timing-function: ease-in;
+			}
+			80% {
+				-ms-transform: perspective(400px) rotateY(360deg) scale(.95);
+				-ms-animation-timing-function: ease-in;
+			}
+			100% {
+				-ms-transform: perspective(400px) scale(1);
+				-ms-animation-timing-function: ease-in;
+			}
+		}
+		@-o-keyframes flip {
+			0% {
+				-o-transform: perspective(400px) rotateY(0);
+				-o-animation-timing-function: ease-out;
+			}
+			40% {
+				-o-transform: perspective(400px) translateZ(150px) rotateY(170deg);
+				-o-animation-timing-function: ease-out;
+			}
+			50% {
+				-o-transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+				-o-animation-timing-function: ease-in;
+			}
+			80% {
+				-o-transform: perspective(400px) rotateY(360deg) scale(.95);
+				-o-animation-timing-function: ease-in;
+			}
+			100% {
+				-o-transform: perspective(400px) scale(1);
+				-o-animation-timing-function: ease-in;
+			}
+		}
+		@keyframes flip {
+			0% {
+				transform: perspective(400px) rotateY(0);
+				animation-timing-function: ease-out;
+			}
+			40% {
+				transform: perspective(400px) translateZ(150px) rotateY(170deg);
+				animation-timing-function: ease-out;
+			}
+			50% {
+				transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+				animation-timing-function: ease-in;
+			}
+			80% {
+				transform: perspective(400px) rotateY(360deg) scale(.95);
+				animation-timing-function: ease-in;
+			}
+			100% {
+				transform: perspective(400px) scale(1);
+				animation-timing-function: ease-in;
+			}
+		}*/
+			
+			
+			/* DEMO四的效果和DEMO三的效果虽然不一样，但制作方法可以说是完全一样，唯一不同的是创建的动画效果不一，
+			         此例采用的是Animate.css的“bounceInUp”效果，接下来就只要触发这个动画效果就OK了。
+			   bounceInUp动画效果代码：
+			*/
+			@-webkit-keyframes bounceInUp {
+				0% {
+					opacity: 0;
+					-webkit-transform: translateY(2000px);
+				}
+				
+				60% {
+					opacity: 1;
+					-webkit-transform: translateY(-30px);
+				}
+				
+				80% {
+					-webkit-transform: translateY(10px);
+				}
+				
+				100% {
+					-webkit-transform: translateY(0);
+				}
+			}
+			@-moz-keyframes bounceInUp {
+				0% {
+					opacity: 0;
+					-moz-transform: translateY(2000px);
+				}
+				
+				60% {
+					opacity: 1;
+					-moz-transform: translateY(-30px);
+				}
+				
+				80% {
+					-moz-transform: translateY(10px);
+				}
+				
+				100% {
+					-moz-transform: translateY(0);
+				}
+			}
+			@-ms-keyframes bounceInUp {
+				0% {
+					opacity: 0;
+					-ms-transform: translateY(2000px);
+				}
+				
+				60% {
+					opacity: 1;
+					-ms-transform: translateY(-30px);
+				}
+				
+				80% {
+					-ms-transform: translateY(10px);
+				}
+				
+				100% {
+					-ms-transform: translateY(0);
+				}
+			}
+
+			@-o-keyframes bounceInUp {
+				0% {
+					opacity: 0;
+					-o-transform: translateY(2000px);
+				}
+				
+				60% {
+					opacity: 1;
+					-o-transform: translateY(-30px);
+				}
+				
+				80% {
+					-o-transform: translateY(10px);
+				}
+				
+				100% {
+					-o-transform: translateY(0);
+				}
+			}
+
+			@keyframes bounceInUp {
+				0% {
+					opacity: 0;
+					transform: translateY(2000px);
+				}
+				
+				60% {
+					opacity: 1;
+					transform: translateY(-30px);
+				}
+				
+				80% {
+					transform: translateY(10px);
+				}
+				
+				100% {
+					transform: translateY(0);
+				}
+			}
+		
+		
+		</style>
+	</head>
+	<body>
+		<!-- Home -->
+		<div id="home" class="content">
+			<h2>Home</h2>
+			<p>Some content</p>
+			<!-- ... -->
+		</div>
+		<!-- /Home -->
+		 
+		<!-- Portfolio -->
+		<div id="portfolio" class="panel">
+			<div class="content">
+				<h2>Portfolio</h2>
+				<p>Some content</p>
+				<!-- ... -->
+			</div>
+		</div>
+		<!-- /Portfolio -->
+		 
+		<!-- About -->
+		<div id="about" class="panel">
+			<div class="content">
+				<h2>About</h2>
+				<p>Some content</p>
+				<!-- ... -->
+			</div>
+		</div>
+		<!-- /About -->
+		 
+		<!-- Contact -->
+		<div id="contact" class="panel">
+			<div class="content">
+				<h2>Contact</h2>
+				<p>Some content</p>
+				<!-- ... -->
+			</div>
+		</div>
+		<!-- /Contact -->
+		<!-- Header with Navigation -->
+		<div id="header">
+			<h1>Page Transitions with CSS3</h1>
+			<ul id="navigation">
+				<li><a id="link-home" href="#home">Home</a></li>
+				<li><a id="link-portfolio" href="#portfolio">Portfolio</a></li>
+				<li><a id="link-about" href="#about">About Me</a></li>
+				<li><a id="link-contact" href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
