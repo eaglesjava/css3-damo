@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		
+			.car {
+			    animation-name: drive;
+			    animation-duration: 2s;
+			    animation-iteration-count:inherit;
+			}
+		
+			@keyframes drive{
+				from{
+					transform: translateX(0);
+					opacity: 1;
+				}
+				to{
+					transform: translateX(400px);
+					opacity: 0;
+				}
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<img src="http://www.w3cplus.com/sites/default/files/blogs/2015/1506/car.png"  class="car" width="220"/>
+	</body>
+</html>
