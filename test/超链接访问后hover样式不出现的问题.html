@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>超链接访问后hover样式不出现的问题</title>
+		<style>
+			/*
+			 a:visited {
+				color: green;
+			 }
+			
+			 a:hover {
+				color: yellow;
+			 }
+			*/
+		
+			a:visited {
+				color: green;
+			}
+			
+			a:hover {
+				color: yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+        	a标签的4种状态的排序的问题：（love hate原则）
+        		l(link)ov(visited)e h(hover)a(active)te
+        -->
+		<a href="#">Hello World</a>
+	</body>
+</html>
